@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:testing
 
 RUN apt-get update \
     && apt-get install --assume-yes \
