@@ -2,7 +2,7 @@
 image: docker:latest
 
 variables:
-  REPOSITORY: 'cgca/ligo-publisher'
+  REPOSITORY: 'igwn/publisher'
 
 stages:
   - docker
