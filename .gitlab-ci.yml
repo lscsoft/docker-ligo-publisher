@@ -21,4 +21,11 @@ docker:build:
           docker push $PUBLISHER_REPOSITORY:latest
           docker logout
         fi
-
+    - |
+        # push to quay.io
+        if [[ $CI_PROJECT_NAMESPACE == 'docker' ]]; then
+          docker login -u $QUAY_USER -p $QUAY_TOKEN quay.io
+          docker tag $CI_REGISTRY_IMAGE:latest quay.io/$PUBLISHER_REPOSITORY:latest
+          docker push quay.io/$PUBLISHER_REPOSITORY:latest
+          docker logout quay.io
+        fi
